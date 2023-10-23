@@ -1,0 +1,23 @@
+{% extends "layouts/main.html" %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    
+
+    <h1 class="govuk-heading-l">{{ serviceName }}</h1>
+    <p>To apply for a juggling license you must tell us about youre juggling abilities</p>
+    {{ govukButton({
+      text: "Start now",
+      href: "/new/email-address",
+      isStartButton: true
+    }) }}
+
+    
+  </div>
+</div>
+
+{% endblock %}
