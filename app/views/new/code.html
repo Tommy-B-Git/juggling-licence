@@ -18,7 +18,7 @@
     <p>Check your spam or trash folder if you cannot find the email.</p>
     <p>You can also <a href="/new/email-address">request another confirmation code</a>.</p>
 
-   <form novalidate>
+   <form novalidate method="post">
       
       {{ govukInput({
         id: "[new][code]",
@@ -27,7 +27,8 @@
           text: "Confirmation code",
           classes: "govuk-label--s"
         },
-        value: data.new.code
+        value: data.new.code,
+        classes: "govuk-input--width-5"
       }) }}
 
       {{ govukButton({
