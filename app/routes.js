@@ -31,3 +31,8 @@ router.post('/new/juggling-balls', (req, res) => {
         res.redirect('/new/juggling-tricks')    
     }
 })
+
+
+router.post('/new/juggling-tricks', (req, res) => {
+    res.redirect('/new/juggling-objects')
+})
