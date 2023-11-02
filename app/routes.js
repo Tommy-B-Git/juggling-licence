@@ -85,3 +85,10 @@ router.post('/new/juggling-objects', (req, res) => {
     }
 })
 
+
+// CONFIRMATION /////////
+
+router.post('/new/check', (req, res) => {
+    res.redirect('/new/confirmation')
+})
+
