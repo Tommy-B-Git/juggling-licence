@@ -6,38 +6,82 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
-// Add your routes here
+// EMAIL /////////
 
 router.post('/new/email-address', (req, res) => {
-    res.redirect('/new/code')
+    if (req.query.returnUrl) {
+        res.redirect('/new/check')    
+    } else {
+        res.redirect('/new/code')    
+    }
 })
+
+// CODE  ////////////////
 
 router.post('/new/code', (req, res) => {
-    res.redirect('/new/name')
+    if (req.query.returnUrl) {
+        res.redirect('/new/check')    
+    } else {
+        res.redirect('/new/name')    
+    }
 })
+
+// NAME ///////////////////
 
 router.post('/new/name', (req, res) => {
-    res.redirect('/new/country')
+    if (req.query.returnUrl) {
+        res.redirect('/new/check')    
+    } else {
+        res.redirect('/new/country')
+    }
 })
+
+// COUNTRY //////////////
 
 router.post('/new/country', (req, res) => {
-    res.redirect('/new/juggling-balls')
-})
-
-router.post('/new/juggling-balls', (req, res) => {
-    if (req.body.new.numberOfBalls == 'None - I cannot juggle') {
-        res.redirect('/new/not-eligible')    
+    if (req.query.returnUrl) {
+        res.redirect('/new/check')    
     } else {
-        res.redirect('/new/juggling-tricks')    
+        res.redirect('/new/juggling-balls')
     }
 })
 
 
-router.post('/new/juggling-tricks', (req, res) => {
-    res.redirect('/new/juggling-objects')
+// HOW MANY BALLS /////////
+
+router.post('/new/juggling-balls', (req, res) => {
+
+    if (req.query.returnUrl) {
+        res.redirect('/new/check')    
+    }
+    else if
+        (req.body.new.numberOfBalls == 'None - I cannot juggle') {
+            res.redirect('/new/not-eligible')    
+    } else
+    {
+        res.redirect('/new/juggling-tricks')       
+    }
 })
 
+
+// BEST TRICK /////////
+
+router.post('/new/juggling-tricks', (req, res) => {
+    if (req.query.returnUrl) {
+        res.redirect('/new/check')    
+    } else {
+    res.redirect('/new/juggling-objects')
+    }
+})
+
+
+// JUGGLING OBJECTS /////////
+
 router.post('/new/juggling-objects', (req, res) => {
-    res.redirect('/new/check')
+    if (req.query.returnUrl) {
+        res.redirect('/new/check')
+    } else {
+        res.redirect('/new/check')
+    }
 })
 
